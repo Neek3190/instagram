@@ -29,8 +29,10 @@ class _bottomState extends State<bottom> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        iconSize: 35,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        selectedItemColor: Colors.black,
         unselectedItemColor: Colors.black,
         currentIndex: currentPage,
         onTap: (int index) {
@@ -42,34 +44,35 @@ class _bottomState extends State<bottom> {
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_outlined,
-                size: 35,
               ),
+              activeIcon: Icon(Icons.home_filled),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.search,
-                size: 35,
+                Icons.search_outlined,
               ),
+              activeIcon: Icon(Icons.search),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.add_circle_outline,
-                size: 35,
               ),
+              activeIcon: Icon(Icons.add_circle),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.movie_creation_outlined,
-                size: 35,
               ),
+              activeIcon: Icon(Icons.movie_creation),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.account_circle_outlined,
-                size: 35,
               ),
+              activeIcon: Icon(Icons.account_circle),
               label: ''),
         ],
+        elevation: 10,
       ),
     );
   }
