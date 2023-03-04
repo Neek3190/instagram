@@ -29,7 +29,7 @@ class _bottomState extends State<bottom> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        iconSize: 35,
+        iconSize: 30,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedItemColor: Colors.black,
