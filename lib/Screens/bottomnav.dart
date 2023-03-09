@@ -15,7 +15,7 @@ class bottom extends StatefulWidget {
 class _bottomState extends State<bottom> {
   final pages = [
     const Home(),
-    const search(),
+    search(),
     const post(),
     const reels(),
     const profile()
