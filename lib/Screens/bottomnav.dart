@@ -42,6 +42,10 @@ class _bottomState extends State<bottom> {
         },
         items: const [
           BottomNavigationBarItem(
+            // ImageIcon(
+            //    AssetImage("images/icon_more.png"),
+            //         color: Color(0xFF3A5A98),
+            //    ),
               icon: Icon(
                 Icons.home_outlined,
               ),

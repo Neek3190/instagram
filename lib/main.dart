@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sta/Screens/bottomnav.dart';
+// import 'package:sta/stry/homepage.dart';
 
 void main() {
   runApp(const MyApp());
