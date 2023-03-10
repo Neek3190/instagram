@@ -2,6 +2,8 @@ import 'package:dashed_circle/dashed_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sta/Screens/message.dart';
+import 'package:sta/Screens/request.dart';
 import 'package:sta/stry/stryViewPge.dart';
 
 import '../widgets/feeds.dart';
@@ -97,23 +99,39 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             "Instagram",
             style: GoogleFonts.fruktur(color: Colors.black, fontSize: 22),
           ),
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.favorite_border_outlined,
-                color: Colors.black,
+              padding: const EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const request())));
+                },
+                child: const Icon(
+                  Icons.favorite_border_outlined,
+                  color: Colors.black,
+                ),
               ),
             ),
-            Gap(10),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.maps_ugc_outlined,
-                color: Colors.black,
-              ),
+            const Gap(10),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const msg(),
+                    ));
+              },
+              child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Image.asset(
+                    "assets/icons/chat.png",
+                    height: 14,
+                  )),
             ),
-            Gap(10),
+            const Gap(10),
           ]),
       body: SingleChildScrollView(
         child: Column(

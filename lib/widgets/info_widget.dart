@@ -11,12 +11,13 @@ class InfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      height: 220,
+      height: 230,
       width: 220,
       decoration: BoxDecoration(
-          border: Border.all(width: 5, color: Colors.red),
-          borderRadius: BorderRadius.circular(10),
-          color: const Color.fromARGB(255, 176, 218, 237)),
+        border: Border.all(
+            width: 1, color: const Color.fromARGB(255, 215, 213, 213)),
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,7 +27,7 @@ class InfoWidget extends StatelessWidget {
               height: 50,
               width: 50,
               decoration: const BoxDecoration(
-                  shape: BoxShape.circle, color: Colors.white),
+                  shape: BoxShape.circle, color: Colors.yellow),
               // child: Icon(logo),
             ),
             const Gap(20),

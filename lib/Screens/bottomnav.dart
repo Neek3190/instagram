@@ -16,7 +16,7 @@ class _bottomState extends State<bottom> {
   final pages = [
     const Home(),
     search(),
-    const post(),
+    const TestScreen(),
     const reels(),
     const profile()
   ];
@@ -42,10 +42,10 @@ class _bottomState extends State<bottom> {
         },
         items: const [
           BottomNavigationBarItem(
-            // ImageIcon(
-            //    AssetImage("images/icon_more.png"),
-            //         color: Color(0xFF3A5A98),
-            //    ),
+              // ImageIcon(
+              //    AssetImage("images/icon_more.png"),
+              //         color: Color(0xFF3A5A98),
+              //    ),
               icon: Icon(
                 Icons.home_outlined,
               ),
