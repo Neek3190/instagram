@@ -269,11 +269,33 @@ class profile extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                child: const Center(
-                                  child: Text('Display Tab 2',
-                                      style: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold)),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 90,
+                                      width: 90,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 3, color: Colors.black87),
+                                          shape: BoxShape.circle),
+                                      child: const Icon(
+                                        Icons.assignment_ind_outlined,
+                                        color: Colors.black87,
+                                        size: 60,
+                                      ),
+                                    ),
+                                    const Gap(20),
+                                    const Text('Photos and Videos of you',
+                                        style: TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold)),
+                                    const Gap(10),
+                                    const Text(
+                                      'When people tag you in photos and videos.\n                      they\'ll appear here',
+                                      style: TextStyle(color: Colors.black38),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ]))
