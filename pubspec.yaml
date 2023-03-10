@@ -44,6 +44,7 @@ dependencies:
   dashed_circle: ^0.0.2
   share_plus: ^6.3.1
   image_picker: ^0.8.6+4
+  modal_bottom_sheet: ^2.1.2
 
 dev_dependencies:
   flutter_test:

@@ -37,19 +37,33 @@ class profile extends StatelessWidget {
           ],
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              height: 25,
-              width: 20,
-              child: Image.asset('assets/images/add.png'),
+          InkWell(
+            // onTap: () {
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => const bottomSheet()));
+            // },
+            onTap: () {
+              _settingModalBottomSheet(context);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 25,
+                width: 20,
+                child: Image.asset('assets/images/add.png'),
+              ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.density_medium,
-              color: Colors.black,
+          InkWell(
+            onTap: () {
+              _modalBottomSheet(context);
+            },
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.density_medium,
+                color: Colors.black,
+              ),
             ),
           )
         ],
@@ -68,6 +82,7 @@ class profile extends StatelessWidget {
                 children: [
                   Column(
                     children: [
+                      const Gap(5),
                       const CircleAvatar(
                         radius: 35,
                         foregroundImage: NetworkImage(
@@ -156,7 +171,7 @@ class profile extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: Text('Keep your favourite stories on your profile'),
               ),
-              const Gap(10),
+              const Gap(20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -368,4 +383,160 @@ class profile extends StatelessWidget {
       ),
     );
   }
+}
+
+void _settingModalBottomSheet(context) {
+  showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return SizedBox(
+          child: Wrap(
+            children: <Widget>[
+              // const Gap(5),
+              Container(
+                height: 40,
+                alignment: Alignment.center,
+                child: const Text(
+                  'Create',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+              ),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.movie_outlined,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Reel'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                leading: const Icon(
+                  Icons.grid_view_outlined,
+                  color: Colors.black,
+                ),
+                title: const Text('Post'),
+                onTap: () => {},
+              ),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.add_circle_outline,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Story'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.stars_outlined,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Story Highlight'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.sensors,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Live'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.menu_book_outlined,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Guide'),
+                  onTap: () => {}),
+              // const Gap(10),
+              // const Divider(),
+              const SizedBox(
+                height: 30,
+              )
+            ],
+          ),
+        );
+      });
+}
+
+void _modalBottomSheet(context) {
+  showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return SizedBox(
+          child: Wrap(
+            children: <Widget>[
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.settings_outlined,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Settings'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                leading: const Icon(
+                  Icons.schedule_outlined,
+                  color: Colors.black,
+                ),
+                title: const Text('Your activity'),
+                onTap: () => {},
+              ),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.update_outlined,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Archive'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.qr_code_outlined,
+                    color: Colors.black,
+                  ),
+                  title: const Text('QR code'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.bookmark_outline,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Saved'),
+                  onTap: () => {}),
+              // const Divider(),
+
+              ListTile(
+                  leading: const Icon(
+                    Icons.fact_check_outlined,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Digital collectibles'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.list,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Close friends'),
+                  onTap: () => {}),
+              // const Divider(),
+              ListTile(
+                  leading: const Icon(
+                    Icons.star_outline,
+                    color: Colors.black,
+                  ),
+                  title: const Text('Favourites'),
+                  onTap: () => {}),
+              // const Divider(),
+            ],
+          ),
+        );
+      });
 }

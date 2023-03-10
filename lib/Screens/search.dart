@@ -55,7 +55,7 @@ class search extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   hintStyle: TextStyle(
                       fontSize: 12, color: Color.fromARGB(255, 173, 170, 170)),
-                  hintText: "Product, Store, Etc."),
+                  hintText: 'Search'),
             ),
           ),
           actions: const [
