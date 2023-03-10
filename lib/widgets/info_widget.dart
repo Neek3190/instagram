@@ -26,9 +26,13 @@ class InfoWidget extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: const BoxDecoration(
-                  shape: BoxShape.circle, color: Colors.yellow),
-              // child: Icon(logo),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(width: 1, color: Colors.black)),
+              child: const Icon(
+                Icons.person_outline,
+                color: Colors.black,
+              ),
             ),
             const Gap(20),
             Text(

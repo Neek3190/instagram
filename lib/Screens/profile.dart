@@ -12,13 +12,29 @@ class profile extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: const Icon(
-          Icons.lock_outline,
-          color: Colors.black,
-        ),
-        title: const Text(
-          'ABC',
-          style: TextStyle(color: Colors.black),
+        // leading: const Icon(
+        //   Icons.lock_outline,
+        //   color: Colors.black,
+        //   size: 18,
+        // ),
+        title: Row(
+          children: const [
+            Icon(
+              Icons.lock_outline,
+              color: Colors.black,
+              size: 17,
+            ),
+            Gap(5),
+            Text(
+              'arshdeep.kkaur',
+              style: TextStyle(color: Colors.black),
+            ),
+            Gap(10),
+            Icon(
+              Icons.expand_more,
+              color: Colors.black,
+            )
+          ],
         ),
         actions: [
           Padding(
@@ -40,14 +56,14 @@ class profile extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10),
+          // padding: const EdgeInsets.all(10),
           color: Colors.white,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Column(
@@ -58,7 +74,7 @@ class profile extends StatelessWidget {
                             'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80'),
                       ),
                       Text(
-                        'abc_profile',
+                        'arsh_kaur',
                         style:
                             GoogleFonts.montserrat(fontWeight: FontWeight.w600),
                       )
@@ -81,8 +97,9 @@ class profile extends StatelessWidget {
                   ),
                 ],
               ),
+              const Gap(20),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
@@ -127,22 +144,38 @@ class profile extends StatelessWidget {
                   )
                 ],
               ),
-              const Text('Story Highlights'),
-              const Text('Keep your favourite stories on your profile'),
+              const Gap(20),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 4),
+                child: Text(
+                  'Story Highlights',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Text('Keep your favourite stories on your profile'),
+              ),
+              const Gap(10),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: const BoxDecoration(
-                      color: Colors.green,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.black,
-                    ),
+                  Column(
+                    children: [
+                      Container(
+                        height: 65,
+                        width: 65,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Colors.black87),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.black,
+                        ),
+                      ),
+                      // const Text('New'),
+                    ],
                   ),
                   Container(
                     height: 60,
@@ -178,6 +211,7 @@ class profile extends StatelessWidget {
                   ),
                 ],
               ),
+              const Gap(25),
               DefaultTabController(
                   length: 2, // length of tabs
                   initialIndex: 0,
@@ -193,20 +227,22 @@ class profile extends StatelessWidget {
                             tabs: [
                               Tab(
                                 icon: Icon(
-                                  Icons.apps,
+                                  Icons.apps, size: 30,
                                   // color: Colors.black,
                                 ),
                               ),
                               Tab(
                                   icon: Icon(
-                                Icons.assignment_ind_outlined,
+                                Icons.assignment_ind_outlined, size: 30,
                                 // color: Colors.black,
                               )),
                             ],
                           ),
                         ),
+                        // const Gap(10),
                         Container(
-                            height: 400, //height of TabBarView
+                            height: 600,
+                            //height of TabBarView
                             decoration: const BoxDecoration(
                                 border: Border(
                                     top: BorderSide(
@@ -214,35 +250,60 @@ class profile extends StatelessWidget {
                             child: TabBarView(children: <Widget>[
                               Container(
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
+                                    const Gap(40),
                                     const Text('Profile',
                                         style: TextStyle(
                                             fontSize: 22,
                                             fontWeight: FontWeight.bold)),
+                                    const Gap(15),
                                     const Text(
                                       'When you share photos and videos, they\'ll\n                  appear on your profile.',
                                       style: TextStyle(color: Colors.black38),
                                     ),
+                                    const Gap(15),
                                     const Text(
                                       'Share your first photo or video',
                                       style: TextStyle(color: Colors.blue),
                                     ),
-                                    const Text(
-                                      textAlign: TextAlign.left,
-                                      'Complete your profile',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 17),
-                                    ),
-                                    const Text(
-                                      '0 OF 4 COMPLETE',
-                                      style: TextStyle(
-                                          color: Colors.black54, fontSize: 12),
+                                    const Gap(60),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          child: const Padding(
+                                            padding: EdgeInsets.fromLTRB(
+                                                10, 10, 0, 3),
+                                            child: Text(
+                                              'Complete your profile',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 17),
+                                            ),
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(10, 0, 0, 20),
+                                          child: Text(
+                                            '0 OF 4 COMPLETE',
+                                            style: TextStyle(
+                                                color: Colors.black54,
+                                                fontSize: 12),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                     SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
                                       child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
+                                          const Gap(10),
                                           InfoWidget(
                                               'Add bio',
                                               'Tell your followers a little bit\n           about yourself',
@@ -255,13 +316,14 @@ class profile extends StatelessWidget {
                                           const Gap(10),
                                           InfoWidget(
                                               'Add profile photo',
-                                              '       Choose a profile photo to \nrepresent yourself on Instagram',
+                                              '   Choose a profile photo to\nrepresent urself on Instagram',
                                               'Change Photo'),
                                           const Gap(10),
                                           InfoWidget(
                                               'Find people to follow',
                                               'Follow people and interests you \n                  care about',
-                                              'Find More')
+                                              'Find More'),
+                                          const Gap(10)
                                         ],
                                       ),
                                     ),
