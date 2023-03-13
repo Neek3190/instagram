@@ -1,7 +1,6 @@
 import 'package:dashed_circle/dashed_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sta/Screens/message.dart';
 import 'package:sta/Screens/request.dart';
 import 'package:sta/stry/stryViewPge.dart';
@@ -80,13 +79,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     'https://tse4.mm.bing.net/th?id=OIP.xQ22p4-a5USKTUEmnVhB9QHaEK&pid=Api&P=0',
     'https://images.unsplash.com/photo-1674413146432-3e01d9868828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
     'https://images.unsplash.com/photo-1674421338672-3591ba6f176e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80',
-    'https://tse4.mm.bing.net/th?id=OIP.xQ22p4-a5USKTUEmnVhB9QHaEK&pid=Api&P=0',
     'https://images.unsplash.com/photo-1674413146432-3e01d9868828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1674421338672-3591ba6f176e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80',
-    'https://tse4.mm.bing.net/th?id=OIP.xQ22p4-a5USKTUEmnVhB9QHaEK&pid=Api&P=0',
-    'https://images.unsplash.com/photo-1674421338672-3591ba6f176e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80',
-    'https://images.unsplash.com/photo-1674413146432-3e01d9868828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1674421338672-3591ba6f176e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80',
+    'https://images.unsplash.com/photo-1677419734433-2420e3bf1093?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    'https://images.unsplash.com/photo-1677362376803-93af835b3a47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+    'https://images.unsplash.com/photo-1677341279389-155310e12f21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+    'https://images.unsplash.com/photo-1677563256448-e352da12196f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=60',
+    'https://images.unsplash.com/photo-1677146710299-d45d063e0cdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1271&q=80',
+    'https://images.unsplash.com/photo-1675180547490-b93306b2ca3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+    'https://images.unsplash.com/photo-1677077531912-36c1b750c04e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+    'https://images.unsplash.com/photo-1673368280570-8a42321216c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80',
   ];
 
   @override
@@ -95,9 +96,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          title: Text(
-            "Instagram",
-            style: GoogleFonts.fruktur(color: Colors.black, fontSize: 22),
+          title: const Image(
+            image: NetworkImage(
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png'),
+            height: 50,
           ),
           actions: [
             Padding(
@@ -190,6 +192,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: ListView.builder(
+                  // physics: const NeverScrollableScrollPhysics(),
                   itemCount: img.length,
                   itemBuilder: ((context, index) {
                     return feeds(img[index], username[index], post[index],

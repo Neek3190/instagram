@@ -3,12 +3,19 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 
-class feeds extends StatelessWidget {
+class feeds extends StatefulWidget {
   feeds(this.img1, this.username, this.img2, this.username1, {super.key});
   String img1;
   String username;
   String img2;
   String username1;
+
+  @override
+  State<feeds> createState() => _feedsState();
+}
+
+class _feedsState extends State<feeds> {
+  bool isLiked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +33,12 @@ class feeds extends StatelessWidget {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundImage: NetworkImage(img1),
+                      backgroundImage: NetworkImage(widget.img1),
                     ),
                     // Text(username),
                     const Gap(10),
                     Text(
-                      username,
+                      widget.username,
                       style: GoogleFonts.poppins(
                           fontSize: 16, fontWeight: FontWeight.w700),
                     ),
@@ -52,35 +59,37 @@ class feeds extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            height: 250,
-            decoration: const BoxDecoration(
-              //     border: Border.all(
-              //   color: Colors.green,
-              //   width: 8,
-              // )
-              // borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(
-                    5.0,
-                    5.0,
-                  ), //Offset
-                  blurRadius: 10.0,
-                  spreadRadius: 2.0,
-                ), //BoxShadow
-                // BoxShadow(
-                //   color: Colors.white,
-                //   offset: Offset(0.0, 0.0),
-                //   blurRadius: 0.0,
-                //   spreadRadius: 0.0,
-                // ), //BoxShadow
-              ],
-            ),
-            child: Image.network(
-              img2,
-              fit: BoxFit.fitWidth,
+          InkWell(
+            onTap: () {},
+            // onDoubleTap: () => const Icon(
+            //   Icons.favorite,
+            //   color: Colors.red,
+            // ),
+            onDoubleTap: () {
+              setState(() {
+                isLiked = !isLiked;
+              });
+              print(isLiked);
+            },
+            child: Container(
+              height: 250,
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(
+                      5.0,
+                      5.0,
+                    ), //Offset
+                    blurRadius: 10.0,
+                    spreadRadius: 2.0,
+                  ), //BoxShadow
+                ],
+              ),
+              child: Image.network(
+                widget.img2,
+                fit: BoxFit.fitWidth,
+              ),
             ),
           ),
           Container(
@@ -94,10 +103,20 @@ class feeds extends StatelessWidget {
                   // mainAxisAlignment:
                   // MainAxisAlignment.spac,
                   children: [
-                    const Icon(
-                      Icons.favorite_outline,
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          isLiked = !isLiked;
+                        });
+                        print(isLiked);
+                      },
+                      child: Icon(
+                        isLiked ? Icons.favorite : Icons.favorite_outline,
 
-                      //  color: Colors.black
+                        color: isLiked ? Colors.red : Colors.black,
+
+                        //  color: Colors.black
+                      ),
                     ),
                     const Gap(18),
                     const Image(
@@ -127,7 +146,7 @@ class feeds extends StatelessWidget {
               children: [
                 const Text('Liked by '),
                 Text(
-                  username1,
+                  widget.username1,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const Text(' and '),
@@ -145,7 +164,7 @@ class feeds extends StatelessWidget {
                     style: const TextStyle(color: Colors.black),
                     children: [
                   TextSpan(
-                      text: username,
+                      text: widget.username,
                       style: const TextStyle(fontWeight: FontWeight.bold)),
                   TextSpan(
                       text:
