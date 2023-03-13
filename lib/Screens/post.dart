@@ -1,8 +1,10 @@
+import "package:flutter/material.dart";
+import 'package:gap/gap.dart';
 import 'dart:io';
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show ViewportOffset;
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
 class TestScreen extends StatefulWidget {
@@ -21,10 +23,40 @@ class _TestScreenState extends State<TestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: (const Icon(Icons.close)),
+        title: Center(
+          child: Text("Post",
+              style: GoogleFonts.montserrat(
+                fontWeight: FontWeight.w500,
+                fontSize: 20,
+                color: Colors.white,
+              )),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Text("Next",
+                  style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                    color: const Color.fromARGB(255, 113, 162, 203),
+                  )),
+            ),
+          )
+        ],
+        //   backgroundColor: Colors.grey, actions: [Icon(Icons.close),
+        // ,
+        // Icon(Icons.close),
+        // ]
+      ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             InkWell(
               onTap: () async {
@@ -41,15 +73,16 @@ class _TestScreenState extends State<TestScreen> {
                     border: Border.all(width: 3, color: Colors.white),
                     borderRadius: BorderRadius.circular(60)),
                 child: CircleAvatar(
-                  radius: 50,
+                  radius: 40,
                   backgroundImage: const NetworkImage(
-                      'https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png'),
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuImypYXGrh6JX3DIvw8EpNvFb28VZqQfadQ&usqp=CAU'),
                   foregroundImage:
                       file == null ? null : FileImage(File(file!.path)),
                 ),
               ),
             ),
             // const Gap(10),
+            const Gap(10),
             InkWell(
                 onTap: () async {
                   imagePicker
@@ -62,22 +95,94 @@ class _TestScreenState extends State<TestScreen> {
                     });
                   });
                 },
-                child: const Text(
+                child: Text(
                   'Upload Photo',
-                  style: TextStyle(color: Color.fromARGB(255, 97, 22, 110)),
+                  style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
                 )),
+            const Gap(10),
+            Container(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text("Recents",
+                        style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.white,
+                        )),
+                    const Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+                Container(
+                  width: 150,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7),
+                      // boxShadow: [BoxShadow(color: Colors.white)]
+                      border: Border.all(color: Colors.white)),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text("Select Multiple",
+                            style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: Colors.white,
+                            )),
+                        const Icon(
+                          Icons.photo_library,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      // boxShadow: [BoxShadow(color: Colors.white)]
+                      border: Border.all(color: Colors.white)),
+                  child: const Icon(
+                    Icons.camera_alt_outlined,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            )),
+            const Gap(10),
+
+            // ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.push(
+            //           context,
+            //           MaterialPageRoute(
+            //             builder: (context) =>
+            //                 ExampleInstagramFilterSelection(File(file!.path)),
+            //           ));
+            //     },
+            //
+            //
+            // child: const Text('Edit Photo')),
+
             ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ExampleInstagramFilterSelection(File(file!.path)),
-                      ));
-                },
-                child: const Text('Edit Photo')),
-            ElevatedButton(
-              child: const Text('showModalBottomSheet'),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  side: const BorderSide(
+                    width: 2, // the thickness
+                    color: Colors.white,
+                    // the color of the border
+                  )),
               onPressed: () {
                 showModalBottomSheet<void>(
                     backgroundColor: Colors.transparent,
@@ -95,107 +200,204 @@ class _TestScreenState extends State<TestScreen> {
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(50)),
-                        child: Column(
-                          children: [
-                            Material(
-                              elevation: 1,
-                              child: Padding(
-                                padding: const EdgeInsets.all(12.0),
-                                child: SizedBox(
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: const [
-                                      Icon(Icons.arrow_back_ios_new),
-                                      Text(
-                                        'Comments',
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      Icon(Icons.forward),
-                                    ],
-                                  ),
-                                ),
-                              ),
+
+                        child: GridView.count(crossAxisCount: 3, children: [
+                          Container(
+                            // color: Colors.amber,
+                            child: Image.network(
+                              "https://images.unsplash.com/photo-1677419734433-2420e3bf1093?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                              fit: BoxFit.cover,
                             ),
-                            SizedBox(
-                              height: 280,
-                              child: ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                itemCount: 2,
-                                itemBuilder: (context, index) {
-                                  return ListTile(
-                                    leading: const CircleAvatar(
-                                      backgroundImage: NetworkImage(
-                                          'https://images.unsplash.com/photo-1626978407649-de62156f1548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80'),
-                                    ),
-                                    title: Row(
-                                      children: const [
-                                        Text(
-                                          'omninos',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 14),
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),
-                                        Text(
-                                          'Hi this is text',
-                                          style: TextStyle(
-                                              color: Colors.black38,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: 14),
-                                        ),
-                                      ],
-                                    ),
-                                    subtitle: Row(
-                                      children: const [
-                                        Text(
-                                          '2s',
-                                          style: TextStyle(fontSize: 12),
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),
-                                        Text(
-                                          'Reply',
-                                          style: TextStyle(fontSize: 12),
-                                        )
-                                      ],
-                                    ),
-                                    trailing: const Icon(
-                                      Icons.favorite_border,
-                                      size: 15,
-                                    ),
-                                  );
-                                },
-                              ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1677362376803-93af835b3a47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+                              fit: BoxFit.cover,
                             ),
-                            Container(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 30),
-                              child: const TextField(
-                                decoration: InputDecoration(
-                                    contentPadding:
-                                        EdgeInsets.symmetric(horizontal: 15),
-                                    hintText: 'Comment',
-                                    fillColor:
-                                        Color.fromARGB(31, 153, 153, 153),
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(60)))),
-                              ),
-                            )
-                          ],
-                        ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1677341279389-155310e12f21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1677563256448-e352da12196f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=60',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1677146710299-d45d063e0cdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1271&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1675180547490-b93306b2ca3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1677077531912-36c1b750c04e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1673368280570-8a42321216c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1677173225981-4e060ad72dd1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1661264770506-9c74d0cc8f9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1673785677551-1786b84abad4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            // // color: Colors.blue,
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1675180547490-b93306b2ca3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ]),
+
+                        // child: Column(
+                        //   children: [
+                        //
+                        // children: [
+                        //   Material(
+                        //     elevation: 1,
+                        //     child: Padding(
+                        //       padding: const EdgeInsets.all(12.0),
+                        //       child: SizedBox(
+                        //         width: MediaQuery.of(context).size.width,
+                        //         child: Row(
+                        //           mainAxisAlignment:
+                        //           MainAxisAlignment.spaceBetween,
+                        //           children: const [
+                        //             Icon(Icons.arrow_back_ios_new),
+                        //             Text(
+                        //               'Comments',
+                        //               style: TextStyle(
+                        //                   fontSize: 16,
+                        //                   fontWeight: FontWeight.w500),
+                        //             ),
+                        //             Icon(Icons.forward),
+                        //           ],
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        //   SizedBox(
+                        //     height: 280,
+                        //     child: ListView.builder(
+                        //       scrollDirection: Axis.vertical,
+                        //       itemCount: 2,
+                        //       itemBuilder: (context, index) {
+                        //         return ListTile(
+                        //           leading: const CircleAvatar(
+                        //             backgroundImage: NetworkImage(
+                        //                 'https://images.unsplash.com/photo-1626978407649-de62156f1548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80'),
+                        //           ),
+                        //           title: Row(
+                        //             children: const [
+                        //               Text(
+                        //                 'omninos',
+                        //                 style: TextStyle(
+                        //                     fontWeight: FontWeight.bold,
+                        //                     fontSize: 14),
+                        //               ),
+                        //               SizedBox(
+                        //                 width: 5,
+                        //               ),
+                        //               Text(
+                        //                 'Hi this is text',
+                        //                 style: TextStyle(
+                        // color: Colors.black38,
+                        //                     fontWeight: FontWeight.normal,
+                        //                     fontSize: 14),
+                        //               ),
+                        //             ],
+                        //           ),
+                        //           subtitle: Row(
+                        //             children: const [
+                        //               Text(
+                        //                 '2s',
+                        //                 style: TextStyle(fontSize: 12),
+                        //               ),
+                        //               SizedBox(
+                        //                 width: 5,
+                        //               ),
+                        //               Text(
+                        //                 'Reply',
+                        //                 style: TextStyle(fontSize: 12),
+                        //               )
+                        //             ],
+                        //           ),
+                        //           trailing: const Icon(
+                        //             Icons.favorite_border,
+                        //             size: 15,
+                        //           ),
+                        //         );
+                        //       },
+                        //     ),
+                        //   ),
+                        //   Container(
+                        //     padding:
+                        //     const EdgeInsets.symmetric(horizontal: 30),
+                        //     child: const TextField(
+                        //       decoration: InputDecoration(
+                        //           contentPadding:
+                        //           EdgeInsets.symmetric(horizontal: 15),
+                        //           hintText: 'Comment',
+                        //           fillColor:
+                        //           Color.fromARGB(31, 153, 153, 153),
+                        //           filled: true,
+                        //           border: OutlineInputBorder(
+                        //               borderSide: BorderSide.none,
+                        //               borderRadius: BorderRadius.all(
+                        //                   Radius.circular(60)))),
+                        //       ),
+                        //     )
+                        //   ],
+                        //
+                        // ),
                       );
                     });
               },
+              child: Text('showModalBottomSheet',
+                  style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                    color: Colors.white,
+                  )),
             ),
           ],
         ),

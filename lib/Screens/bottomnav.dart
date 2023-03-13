@@ -17,7 +17,7 @@ class _bottomState extends State<bottom> {
     const Home(),
     search(),
     const TestScreen(),
-    const reels(),
+    const reel(),
     const profile()
   ];
   int currentPage = 0;
