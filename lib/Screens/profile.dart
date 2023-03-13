@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sta/navigation/editProfile.dart';
 import 'package:sta/widgets/info_widget.dart';
 
 class profile extends StatelessWidget {
@@ -117,21 +118,29 @@ class profile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    height: 35,
-                    // padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color.fromARGB(255, 237, 234, 234),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const editProfile()));
+                    },
+                    child: Container(
+                      height: 35,
+                      // padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color.fromARGB(255, 237, 234, 234),
+                      ),
+                      width: 150,
+                      child: Center(
+                          child: Text(
+                        'Edit Profile',
+                        style:
+                            GoogleFonts.montserrat(fontWeight: FontWeight.w600),
+                      )),
+                      // color: Colors.grey,
                     ),
-                    width: 150,
-                    child: Center(
-                        child: Text(
-                      'Edit Profile',
-                      style:
-                          GoogleFonts.montserrat(fontWeight: FontWeight.w600),
-                    )),
-                    // color: Colors.grey,
                   ),
                   Container(
                     height: 35,

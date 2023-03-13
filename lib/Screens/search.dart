@@ -63,21 +63,22 @@ class search extends StatelessWidget {
               Icons.location_on_outlined,
               size: 30,
               color: Colors.black,
-            )
+            ),
           ],
         ),
         body: GridView.custom(
           gridDelegate: SliverQuiltedGridDelegate(
-            crossAxisCount: 4,
+            crossAxisCount: 3,
             mainAxisSpacing: 4,
             crossAxisSpacing: 4,
             repeatPattern: QuiltedGridRepeatPattern.inverted,
             pattern: [
-              const QuiltedGridTile(2, 2),
+              const QuiltedGridTile(2, 1),
               const QuiltedGridTile(1, 1),
               const QuiltedGridTile(1, 1),
-              const QuiltedGridTile(1, 2),
-              // const QuiltedGridTile(1, 1),
+              const QuiltedGridTile(1, 1),
+
+              const QuiltedGridTile(1, 1),
               // const QuiltedGridTile(1, 1)
             ],
           ),
