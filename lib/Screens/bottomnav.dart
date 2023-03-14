@@ -17,7 +17,7 @@ class _bottomState extends State<bottom> {
     const Home(),
     search(),
     const TestScreen(),
-    const reels(),
+    const reel(),
     const profile()
   ];
   int currentPage = 0;
@@ -58,14 +58,16 @@ class _bottomState extends State<bottom> {
               activeIcon: Icon(Icons.search),
               label: ''),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add_circle_outline,
+              icon: Image(
+                image: AssetImage('assets/icons/post.png'),
+                height: 25,
               ),
               activeIcon: Icon(Icons.add_circle),
               label: ''),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.movie_creation_outlined,
+              icon: Image(
+                image: AssetImage('assets/icons/reels.png'),
+                height: 25,
               ),
               activeIcon: Icon(Icons.movie_creation),
               label: ''),

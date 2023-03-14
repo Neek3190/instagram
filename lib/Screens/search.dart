@@ -55,7 +55,7 @@ class search extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   hintStyle: TextStyle(
                       fontSize: 12, color: Color.fromARGB(255, 173, 170, 170)),
-                  hintText: "Product, Store, Etc."),
+                  hintText: 'Search'),
             ),
           ),
           actions: const [
@@ -63,21 +63,22 @@ class search extends StatelessWidget {
               Icons.location_on_outlined,
               size: 30,
               color: Colors.black,
-            )
+            ),
           ],
         ),
         body: GridView.custom(
           gridDelegate: SliverQuiltedGridDelegate(
-            crossAxisCount: 4,
+            crossAxisCount: 3,
             mainAxisSpacing: 4,
             crossAxisSpacing: 4,
             repeatPattern: QuiltedGridRepeatPattern.inverted,
             pattern: [
-              const QuiltedGridTile(2, 2),
+              const QuiltedGridTile(2, 1),
               const QuiltedGridTile(1, 1),
               const QuiltedGridTile(1, 1),
-              const QuiltedGridTile(1, 2),
-              // const QuiltedGridTile(1, 1),
+              const QuiltedGridTile(1, 1),
+
+              const QuiltedGridTile(1, 1),
               // const QuiltedGridTile(1, 1)
             ],
           ),
