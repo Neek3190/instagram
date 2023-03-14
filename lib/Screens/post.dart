@@ -21,6 +21,8 @@ class _TestScreenState extends State<TestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:
+          AppBar(backgroundColor: Colors.grey, actions: [Icon(Icons.close)]),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
